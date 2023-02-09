@@ -12,7 +12,10 @@ func GetUser(c *fiber.Ctx) error {
 
 	config.Database.Find(&user)
 
-	return c.Status(200).JSON(user)
+	return c.Status(200).JSON(fiber.Map{
+		"message": "User fetched",
+		"data":    user,
+	})
 }
 
 func AddUser(c *fiber.Ctx) error {
