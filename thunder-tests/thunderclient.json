@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "80140e33-0dea-47f4-b56a-fb15c6ffdf77",
+    "colId": "560c2483-139c-4a11-a5fc-99ccd3f8796b",
+    "containerId": "",
+    "name": "Get User",
+    "url": "http://127.0.0.1:3000/users",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-02-09T08:34:58.392Z",
+    "modified": "2023-02-09T08:35:17.061Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6c24181d-a8ac-4bfc-8a10-3f2935676cc9",
+    "colId": "560c2483-139c-4a11-a5fc-99ccd3f8796b",
+    "containerId": "",
+    "name": "Add User",
+    "url": "",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-02-09T08:42:00.468Z",
+    "modified": "2023-02-09T08:53:39.740Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\": \"fleetime\",\n  \"password\": \"1232\",\n  \"email\": \"zane.227@gmail.com\"\n  \n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
