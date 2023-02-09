@@ -10,6 +10,7 @@ func GetUser(c *fiber.Ctx) error {
 	var user []entities.User
 
 	config.Database.Find(&user)
+
 	return c.Status(200).JSON(user)
 }
 
