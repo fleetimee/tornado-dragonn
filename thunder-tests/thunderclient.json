@@ -18,16 +18,16 @@
     "colId": "560c2483-139c-4a11-a5fc-99ccd3f8796b",
     "containerId": "",
     "name": "Add User",
-    "url": "",
+    "url": "http://127.0.0.1:3000/users",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-09T08:42:00.468Z",
-    "modified": "2023-02-09T08:53:39.740Z",
+    "modified": "2023-02-09T22:59:59.543Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"fleetime\",\n  \"password\": \"1232\",\n  \"email\": \"zane.227@gmail.com\"\n  \n}",
+      "raw": "{\n  \"username\": \"fleeaaa\",\n  \"password\": \"1232\",\n  \"email\": \"zane.229@gmail.com\",\n  \"first_name\": \"Yami\",\n  \"last_name\": \"Yugi\"\n}",
       "form": []
     },
     "tests": []

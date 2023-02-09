@@ -3,6 +3,7 @@ package handlers
 import (
 	"github.com/fleetimee/tornado-dragonn/config"
 	"github.com/fleetimee/tornado-dragonn/entities"
+	"github.com/fleetimee/tornado-dragonn/helper"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -22,6 +23,16 @@ func AddUser(c *fiber.Ctx) error {
 			"message": "Error parsing data",
 		})
 	}
+
+	// Hash password before saving to database
+	hashedPassword, err := helper.HashPassword(user.Password)
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"message": "Error hashing password",
+		})
+	}
+
+	user.Password = hashedPassword
 
 	config.Database.Create(&user)
 	return c.Status(200).JSON(user)
