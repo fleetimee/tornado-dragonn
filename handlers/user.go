@@ -8,15 +8,40 @@ import (
 )
 
 func GetUser(c *fiber.Ctx) error {
-	var user []entities.User
+	page, limit, err := helper.GetPaginationParams(c)
+	if err != nil {
+		return c.Status(400).JSON(fiber.Map{
+			"message": "Invalid page or limit number",
+		})
+	}
 
-	config.Database.Find(&user)
+	offset := (page - 1) * limit
 
-	return c.Status(200).JSON(fiber.Map{
-		"message": "Data Fetch Successfully",
-		"status":  c.Context().Response.StatusCode(),
-		"data":    user,
-	})
+	var users []entities.User
+
+	config.Database.Limit(limit).Offset(offset).Find(&users)
+
+	// Get total number of users
+	var total int64
+	config.Database.Model(&entities.User{}).Count(&total)
+
+	// Return the max number of pages
+
+	return c.JSON(
+		fiber.Map{
+			"message": "Data Fetch Successfully",
+			"status":  c.Context().Response.StatusCode(),
+			"data":    users,
+			"total":   total,
+			"pages":   page,
+		},
+	)
+
+	// return c.Status(200).JSON(fiber.Map{
+	// 	"message": "Data Fetch Successfully",
+	// 	"status":  c.Context().Response.StatusCode(),
+	// 	"data":    user,
+	// })
 
 }
 

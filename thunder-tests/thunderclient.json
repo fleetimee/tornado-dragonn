@@ -4,13 +4,25 @@
     "colId": "560c2483-139c-4a11-a5fc-99ccd3f8796b",
     "containerId": "",
     "name": "Get User",
-    "url": "http://127.0.0.1:3000/users",
+    "url": "http://127.0.0.1:3000/users?limit=1",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-02-09T08:34:58.392Z",
-    "modified": "2023-02-10T01:09:54.464Z",
+    "modified": "2023-02-10T02:12:04.282Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "limit",
+        "value": "1",
+        "isPath": false
+      }
+    ],
     "tests": []
   },
   {
@@ -22,12 +34,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-09T08:42:00.468Z",
-    "modified": "2023-02-10T01:10:59.331Z",
+    "modified": "2023-02-10T02:11:41.424Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"fleeaaaaa\",\n  \"password\": \"1234567\",\n  \"email\": \"zane.221@gmail.com\",\n  \"first_name\": \"Marik\",\n  \"last_name\": \"Boy\"\n}",
+      "raw": "{\n  \"username\": \"fleeaaaaaaa\",\n  \"password\": \"1234567\",\n  \"email\": \"zane.222@gmail.com\",\n  \"first_name\": \"Yugi\",\n  \"last_name\": \"Heh\"\n}",
       "form": []
     },
     "tests": []
