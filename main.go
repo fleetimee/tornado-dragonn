@@ -8,6 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 
 	_ "github.com/fleetimee/tornado-dragonn/docs"
+	jwtware "github.com/gofiber/jwt/v3"
 )
 
 // @title Tornado Dragonn API Documentation
@@ -20,6 +21,11 @@ func main() {
 	app := fiber.New()
 
 	config.Connect()
+
+	// Placeholders
+	app.Get("/access", accessible)
+
+	app.Post("/login", handlers.Login)
 
 	app.Get("/swagger/*", swagger.HandlerDefault)
 
@@ -38,7 +44,9 @@ func main() {
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+		return c.JSON(fiber.Map{
+			"message": "fleetime",
+		})
 	})
 
 	app.Get("/users", handlers.GetUser)
@@ -54,5 +62,14 @@ func main() {
 		})
 	})
 
+	app.Use(jwtware.New(jwtware.Config{
+		SigningKey: []byte("secret"),
+	}))
+
 	app.Listen(":3000")
+}
+
+// Placeholders
+func accessible(c *fiber.Ctx) error {
+	return c.SendString("Accessible")
 }
