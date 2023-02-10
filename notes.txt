@@ -1,13 +1,11 @@
 LMS
 
 #user
-uuid
-nrp
+id
 username
 password
 email
 last_login
-
 
 #knowledge
 uuid
@@ -16,6 +14,18 @@ judul_knowledge
 sort_deskripsi
 deskripsi
 
+#topik_konten
+id_topik
+judul_topik
+jenis
+
+#materi_topik
+id_materi
+id_topik
+judul_materi
+image
+jenis
+link 
 
 
 
