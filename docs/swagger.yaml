@@ -1,0 +1,56 @@
+basePath: /
+definitions:
+  entities.User:
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: This is the documentation for the Tornado Dragonn API.
+  title: Tornado Dragonn API Documentation
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get all users
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all users
+      tags:
+      - users
+    post:
+      consumes:
+      - application/json
+      description: Add a new user
+      parameters:
+      - description: User object
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/entities.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entities.User'
+      summary: Add a new user
+      tags:
+      - users
+schemes:
+- http
+- https
+swagger: "2.0"
