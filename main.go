@@ -8,6 +8,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 
 	_ "github.com/fleetimee/tornado-dragonn/docs"
+
+	jwtware "github.com/gofiber/jwt/v3"
 )
 
 // @title Tornado Dragonn API Documentation
@@ -40,6 +42,10 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
+
+	app.Use(jwtware.New(jwtware.Config{
+		SigningKey: []byte("secret"),
+	}))
 
 	app.Get("/users", handlers.GetUser)
 	app.Post("/users", handlers.AddUser)
