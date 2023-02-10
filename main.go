@@ -22,10 +22,9 @@ func main() {
 
 	config.Connect()
 
-	// Placeholders
-	app.Get("/access", accessible)
-
-	app.Post("/login", handlers.Login)
+	// Routes Auth Group
+	auth := app.Group("/auth")
+	auth.Post("/login", handlers.Login)
 
 	app.Get("/swagger/*", swagger.HandlerDefault)
 
@@ -54,6 +53,24 @@ func main() {
 	app.Put("/users/:id", handlers.UpdateUser)
 	app.Delete("/users/:id", handlers.RemoveUser)
 
+	// Protected routes start here if route not found also handled here
+	app.Use(jwtware.New(jwtware.Config{
+		SigningKey: []byte("secret"),
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			return c.Status(401).JSON(fiber.Map{
+				"message": "Unauthorized",
+				"status":  c.Context().Response.StatusCode(),
+			})
+		},
+	}))
+
+	app.Get("/protected", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"message": "Hello, Protected World!",
+			"status":  c.Context().Response.StatusCode(),
+		})
+	})
+
 	// Handle unknown routes
 	app.Use(func(c *fiber.Ctx) error {
 		return c.Status(404).JSON(fiber.Map{
@@ -62,14 +79,5 @@ func main() {
 		})
 	})
 
-	app.Use(jwtware.New(jwtware.Config{
-		SigningKey: []byte("secret"),
-	}))
-
 	app.Listen(":3000")
-}
-
-// Placeholders
-func accessible(c *fiber.Ctx) error {
-	return c.SendString("Accessible")
 }

@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"time"
+
 	"github.com/fleetimee/tornado-dragonn/config"
 	"github.com/fleetimee/tornado-dragonn/entities"
 	"github.com/fleetimee/tornado-dragonn/helper"
@@ -8,6 +10,15 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
+// Generate Swagger Documentation
+// @Summary Login
+// @Description Login to the application
+// @Tags auth
+// @Accept json
+// @Produce json
+// @Param username formData string true "Username"
+// @Param password formData string true "Password"
+// @Router /auth/login [post]
 func Login(c *fiber.Ctx) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
@@ -40,6 +51,7 @@ func Login(c *fiber.Ctx) error {
 	// Create JWT Claims
 	claims := jwt.MapClaims{
 		"username": user.Username,
+		"exp":      time.Now().Add(time.Hour * 24).Unix(),
 	}
 
 	// Create JWT Token

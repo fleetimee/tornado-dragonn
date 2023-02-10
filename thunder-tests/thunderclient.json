@@ -49,11 +49,11 @@
     "colId": "ffd66440-8b22-478e-bc93-13839a4c8f6e",
     "containerId": "",
     "name": "Login",
-    "url": "{{baseUrl}}/login",
+    "url": "{{baseUrl}}/auth/login",
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-02-10T07:15:09.767Z",
-    "modified": "2023-02-10T07:26:52.442Z",
+    "modified": "2023-02-10T07:54:04.701Z",
     "headers": [],
     "params": [],
     "body": {
@@ -66,9 +66,41 @@
         },
         {
           "name": "password",
-          "value": "123456"
+          "value": "1234567"
         }
       ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a55ed74-5605-4365-8f5c-12f560721d09",
+    "colId": "0d12e0f5-27be-46ae-9c2b-2ebb2ecf1f2b",
+    "containerId": "",
+    "name": "Get Unaothrized",
+    "url": "{{baseUrl}}/protected",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-02-10T07:52:12.429Z",
+    "modified": "2023-02-10T07:52:47.709Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "65d5057e-f9fd-4ba8-9438-216819d0ecb0",
+    "colId": "0d12e0f5-27be-46ae-9c2b-2ebb2ecf1f2b",
+    "containerId": "",
+    "name": "Get Authorized",
+    "url": "{{baseUrl}}/protected",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-02-10T07:54:20.240Z",
+    "modified": "2023-02-10T07:55:11.906Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzYxMDIwNDQsInVzZXJuYW1lIjoiZmxlZWFhYWFhYWEifQ.bwwgEWkBHi0o7wzi4yoQ8Qg0vg2O_nvXQatRC9XkGAA"
     },
     "tests": []
   }

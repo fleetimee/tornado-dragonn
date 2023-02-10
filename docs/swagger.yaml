@@ -9,6 +9,28 @@ info:
   title: Tornado Dragonn API Documentation
   version: 1.0.0
 paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login to the application
+      parameters:
+      - description: Username
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: Password
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Login
+      tags:
+      - auth
   /users:
     get:
       consumes:
