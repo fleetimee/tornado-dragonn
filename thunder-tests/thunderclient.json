@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-02-09T08:34:58.392Z",
-    "modified": "2023-02-09T08:35:17.061Z",
+    "modified": "2023-02-10T01:09:54.464Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-09T08:42:00.468Z",
-    "modified": "2023-02-09T22:59:59.543Z",
+    "modified": "2023-02-10T01:10:59.331Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"fleeaaa\",\n  \"password\": \"1232\",\n  \"email\": \"zane.229@gmail.com\",\n  \"first_name\": \"Yami\",\n  \"last_name\": \"Yugi\"\n}",
+      "raw": "{\n  \"username\": \"fleeaaaaa\",\n  \"password\": \"1234567\",\n  \"email\": \"zane.221@gmail.com\",\n  \"first_name\": \"Marik\",\n  \"last_name\": \"Boy\"\n}",
       "form": []
     },
     "tests": []
