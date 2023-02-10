@@ -7,6 +7,16 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+// Generate swagger documentation for this function
+
+// @Summary Get all users
+// @Description Get all users
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param page query integer false "Page number"
+// @Param limit query integer false "Limit number"
+// @Router /users [get]
 func GetUser(c *fiber.Ctx) error {
 	page, limit, err := helper.GetPaginationParams(c)
 	if err != nil {
@@ -45,6 +55,15 @@ func GetUser(c *fiber.Ctx) error {
 
 }
 
+// Generate swagger documentation for this function
+// @Summary Add a new user
+// @Description Add a new user
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param user body entities.User true "User object"
+// @Router /users [post]
+// @Success 200 {object} entities.User
 func AddUser(c *fiber.Ctx) error {
 	var user entities.User
 
